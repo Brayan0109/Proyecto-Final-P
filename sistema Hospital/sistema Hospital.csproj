@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{213D051E-1436-4321-B8F7-80D3516DB826}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>sistema_Hospital</RootNamespace>
+    <AssemblyName>sistema Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\CDCitas.cs" />
+    <Compile Include="Datos\CDConexion.cs" />
+    <Compile Include="Datos\CDEmpleados.cs" />
+    <Compile Include="Datos\CDgestionhabitaciones.cs" />
+    <Compile Include="Datos\CDHabitacion.cs" />
+    <Compile Include="Datos\CDmedicamentos.cs" />
+    <Compile Include="Datos\CDpacientes.cs" />
+    <Compile Include="Datos\CDpagocita.cs" />
+    <Compile Include="Datos\CDpagoempleados.cs" />
+    <Compile Include="Datos\CDusuario.cs" />
+    <Compile Include="Logica\CLCitas.cs" />
+    <Compile Include="Logica\CLEmpleados.cs" />
+    <Compile Include="Logica\CLgestionhabitaciones.cs" />
+    <Compile Include="Logica\CLHabitaciones.cs" />
+    <Compile Include="Logica\CLmedicamentos.cs" />
+    <Compile Include="Logica\CLpacientes.cs" />
+    <Compile Include="Logica\CLpagocita.cs" />
+    <Compile Include="Logica\CLpagoempleados.cs" />
+    <Compile Include="Logica\CLusuario.cs" />
+    <Compile Include="Pesentacion\FrmCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmCitas.Designer.cs">
+      <DependentUpon>FrmCitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmHabitaciones.Designer.cs">
+      <DependentUpon>FrmHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmPacientes.Designer.cs">
+      <DependentUpon>FrmPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmGestionHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmGestionHabitacion.Designer.cs">
+      <DependentUpon>FrmGestionHabitacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulomedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulomedicamentos.Designer.cs">
+      <DependentUpon>FrmModulomedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulopagocitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulopagocitas.Designer.cs">
+      <DependentUpon>FrmModulopagocitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulopagoempleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmModulopagoempleado.Designer.cs">
+      <DependentUpon>FrmModulopagoempleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesentacion\FrmTratamientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesentacion\FrmTratamientos.Designer.cs">
+      <DependentUpon>FrmTratamientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserCache.cs" />
+    <Compile Include="Seguridad\UserConnectionToSql.cs" />
+    <Compile Include="Seguridad\UserDao.cs" />
+    <Compile Include="Seguridad\UserModel.cs" />
+    <EmbeddedResource Include="Pesentacion\FrmCitas.resx">
+      <DependentUpon>FrmCitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmHabitaciones.resx">
+      <DependentUpon>FrmHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmPacientes.resx">
+      <DependentUpon>FrmPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmGestionHabitacion.resx">
+      <DependentUpon>FrmGestionHabitacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmModulomedicamentos.resx">
+      <DependentUpon>FrmModulomedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmModulopagocitas.resx">
+      <DependentUpon>FrmModulopagocitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmModulopagoempleado.resx">
+      <DependentUpon>FrmModulopagoempleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesentacion\FrmTratamientos.resx">
+      <DependentUpon>FrmTratamientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Seguridad\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
