@@ -42,9 +42,9 @@ namespace sistema_Hospital.Pesentacion
         {
             lblFechaHoy.Text = Cl_Citas.MtdFechaHoy().ToString();
             MtdMostrarListaempleados();
-            MtdConsultarUsuario();
+            MtdConsultarCitas();
         }
-        private void MtdConsultarUsuario()
+        private void MtdConsultarCitas()
         {
             DataTable Dt = cd_Citas.MtdConsultaCitas();
             dgvCitas.DataSource = Dt;
@@ -73,7 +73,7 @@ namespace sistema_Hospital.Pesentacion
 
                     cd_Citas.MtdAgregarCitas(Codigoempleado, CodigoPaciente, FechaIngreso, FechaEgreso, CostoT, costoH, UsuarioAuditoria, Estado, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MtdConsultarUsuario();
+                    MtdConsultarCitas();
                     MtdLimpiarCampos();
 
 
@@ -108,7 +108,7 @@ namespace sistema_Hospital.Pesentacion
 
                     cd_Citas.MtdAgregarCitas(Codigoempleado, CodigoPaciente, FechaIngreso, FechaEgreso, CostoT, costoH, UsuarioAuditoria, Estado, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MtdConsultarUsuario();
+                    MtdConsultarCitas();
                     MtdLimpiarCampos();
 
 
