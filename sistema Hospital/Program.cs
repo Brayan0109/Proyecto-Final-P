@@ -1,4 +1,5 @@
 ﻿using Habitaciones;
+using Pacientesamy;
 using sistema_Hospital.Pesentacion;
 using Sistema_Proyecto;
 using System;
@@ -19,7 +20,7 @@ namespace sistema_Hospital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCitas());
+            Application.Run(new FrmPacientes());
         }
     }
 }

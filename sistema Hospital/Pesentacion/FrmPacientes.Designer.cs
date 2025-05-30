@@ -289,14 +289,14 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Stencil", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(272, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 19);
+            this.label7.Size = new System.Drawing.Size(167, 18);
             this.label7.TabIndex = 23;
             this.label7.Text = "Modulo Pacientes";
             // 
-            // Form1
+            // FrmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +311,7 @@
             this.Controls.Add(this.lblfecha);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Name = "Form1";
+            this.Name = "FrmPacientes";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
