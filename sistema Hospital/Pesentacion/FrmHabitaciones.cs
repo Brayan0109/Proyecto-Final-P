@@ -197,7 +197,7 @@ namespace Habitaciones
         }
 
         private void FrmHabitaciones_Load_1(object sender, EventArgs e)
-        {
+        { //Comentario prueba
             lblfecha.Text = calcu.MtdFechaHoy().ToString();
             MtdConsultarCodigoHabitacion();
         }
