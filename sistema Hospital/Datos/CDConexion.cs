@@ -10,7 +10,7 @@ namespace sistema_Hospital.Datos
 {
     internal class CDConexion
     {
-        private SqlConnection db_conexion = new SqlConnection("Data Source=OCONER\\SQLEXPRESS;Initial Catalog=BD_Hospital;Integrated Security=True;Encrypt=False");
+        private SqlConnection db_conexion = new SqlConnection("Data Source=DESKTOP-M60V2AT\\SQLEXPRESS;Initial Catalog=BD_Hospitalsiste;Integrated Security=True;Encrypt=False");
 
         public SqlConnection MtdAbrirConexion()
         {

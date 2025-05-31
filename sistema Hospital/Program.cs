@@ -25,7 +25,7 @@ namespace sistema_Hospital
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmModulopagoempleado());
 
         }
     }

@@ -56,7 +56,7 @@ namespace Sistema_Proyecto
                 txtbono.Text = cl_pagoempleados.MtdSueldoBono(Bono).ToString();
 
 
-
+                
 
             }
             else
@@ -141,35 +141,36 @@ namespace Sistema_Proyecto
             }
             else
             {
+
+
                 
+                                try
+                                {
+                int Codigopagoempleado = (int.Parse(txtPagoempleados.Text));
+                int Codigoempleados = (int)((dynamic)cboxcodigoempleado.SelectedItem).Value;
+                DateTime Fechapago = dtpfechapago.Value;
+                double Sueldos = double.Parse(txtSueldo.Text);
+                 double Bono = double.Parse(txtbono.Text);
+                int Montohorasextras = int.Parse(txtMontohorasextras.Text);
+                double Totalmonto = double.Parse(txttotalmonto.Text);
+                string Estado = cboxestado.Text;
+                DateTime FechaAuditoria = cl_pagoempleados.MtdFechaHoy();
+                string UsuarioAuditoria = "Admin";
+                //Aca esta llamando la base de datos para agregar a las tablas
+                cd_pagoempleados.MtdActualizarPagoempleados(Codigopagoempleado, Codigoempleados, Fechapago, Sueldos, Bono, Montohorasextras, Totalmonto, Estado, FechaAuditoria, UsuarioAuditoria);
+                MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MtdConsultarPagoempleados();
+                MtdLimpiarCampos();
 
+                  }
+                  catch (Exception ex)
+                  {
+                      MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  }
+              }
 
-                try
-                {
-                    int Codigopagoempleado = (int.Parse(txtPagoempleados.Text));
-                    int Codigoempleados = (int)((dynamic)cboxcodigoempleado.SelectedItem).Value;
-                    DateTime Fechapago = dtpfechapago.Value;
-                    double Sueldos = double.Parse(txtSueldo.Text);
-                    double Bono = double.Parse(txtbono.Text);
-                    int Montohorasextras = int.Parse(txtMontohorasextras.Text);
-                    double Totalmonto = double.Parse(txttotalmonto.Text);
-                    string Estado = cboxestado.Text;
-                    DateTime FechaAuditoria = cl_pagoempleados.MtdFechaHoy();
-                    string UsuarioAuditoria = "Admin";
-                    //Aca esta llamando la base de datos para agregar a las tablas
-                    cd_pagoempleados.MtdActualizarPagoempleados(Codigopagoempleado, Codigoempleados, Fechapago, Sueldos, Bono, Montohorasextras, Totalmonto, Estado, FechaAuditoria, UsuarioAuditoria);
-                    MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MtdConsultarPagoempleados();
-                    MtdLimpiarCampos();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-
-        }
+        
     
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -265,7 +266,7 @@ namespace Sistema_Proyecto
                 if (!string.IsNullOrWhiteSpace(txtSueldo.Text))
                 {
 
-
+                    
                     double sueldo = double.Parse(txtSueldo.Text);
                     
                     double montohorase = double.Parse(txtMontohorasextras.Text);
