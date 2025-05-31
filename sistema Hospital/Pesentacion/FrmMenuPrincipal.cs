@@ -210,6 +210,11 @@ namespace CapaPresentacion.Presentacion
             AbrirFormulario<FrmTratamientos>();
         }
 
+        private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FrmUsuarios>();

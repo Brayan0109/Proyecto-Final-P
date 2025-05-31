@@ -69,7 +69,7 @@
             this.cboxCodigoMedicamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCodigoMedicamento.FormattingEnabled = true;
             this.cboxCodigoMedicamento.Location = new System.Drawing.Point(237, 121);
-            this.cboxCodigoMedicamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxCodigoMedicamento.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCodigoMedicamento.Name = "cboxCodigoMedicamento";
             this.cboxCodigoMedicamento.Size = new System.Drawing.Size(160, 26);
             this.cboxCodigoMedicamento.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.cboxCodigoCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCodigoCita.FormattingEnabled = true;
             this.cboxCodigoCita.Location = new System.Drawing.Point(237, 76);
-            this.cboxCodigoCita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxCodigoCita.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCodigoCita.Name = "cboxCodigoCita";
             this.cboxCodigoCita.Size = new System.Drawing.Size(160, 26);
             this.cboxCodigoCita.TabIndex = 1;
@@ -88,7 +88,7 @@
             // txtCosto
             // 
             this.txtCosto.Location = new System.Drawing.Point(673, 36);
-            this.txtCosto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.ReadOnly = true;
             this.txtCosto.Size = new System.Drawing.Size(160, 22);
@@ -134,13 +134,14 @@
             this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalir.IconSize = 25;
             this.btnSalir.Location = new System.Drawing.Point(947, 495);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(117, 34);
             this.btnSalir.TabIndex = 36;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label4
             // 
@@ -182,7 +183,7 @@
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 25;
             this.btnEliminar.Location = new System.Drawing.Point(821, 495);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 34);
             this.btnEliminar.TabIndex = 35;
@@ -208,9 +209,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(16, 36);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1093, 185);
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
@@ -226,7 +227,7 @@
             "Suspendido",
             "Cancelado"});
             this.cboxEstado.Location = new System.Drawing.Point(673, 122);
-            this.cboxEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxEstado.Name = "cboxEstado";
             this.cboxEstado.Size = new System.Drawing.Size(160, 26);
             this.cboxEstado.TabIndex = 8;
@@ -234,7 +235,7 @@
             // txtCodigoTratamiento
             // 
             this.txtCodigoTratamiento.Location = new System.Drawing.Point(237, 32);
-            this.txtCodigoTratamiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoTratamiento.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoTratamiento.Name = "txtCodigoTratamiento";
             this.txtCodigoTratamiento.ReadOnly = true;
             this.txtCodigoTratamiento.Size = new System.Drawing.Size(160, 22);
@@ -247,7 +248,7 @@
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 25;
             this.btnCancelar.Location = new System.Drawing.Point(893, 121);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 34);
             this.btnCancelar.TabIndex = 11;
@@ -262,7 +263,7 @@
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 25;
             this.btnEditar.Location = new System.Drawing.Point(893, 78);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(117, 34);
             this.btnEditar.TabIndex = 10;
@@ -278,7 +279,7 @@
             this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregar.IconSize = 25;
             this.btnAgregar.Location = new System.Drawing.Point(893, 34);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(117, 34);
             this.btnAgregar.TabIndex = 9;
@@ -325,7 +326,7 @@
             this.dgvTratamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTratamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTratamientos.Location = new System.Drawing.Point(28, 238);
-            this.dgvTratamientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTratamientos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTratamientos.Name = "dgvTratamientos";
             this.dgvTratamientos.ReadOnly = true;
             this.dgvTratamientos.RowHeadersWidth = 51;
@@ -346,7 +347,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvTratamientos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTratamientos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTratamientos";
