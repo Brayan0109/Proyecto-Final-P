@@ -28,8 +28,6 @@ namespace Sistema_Proyecto
             }
             else
             {
-
-
                 sueldoempleado = 0;
 
             }
