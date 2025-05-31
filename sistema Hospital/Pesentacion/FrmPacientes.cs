@@ -24,6 +24,7 @@ namespace Pacientesamy
         {
             lblfecha.Text=cl_pacientes.MtdFechaHoy().ToString();
             MtdMostrarListahabitaciones();
+            MtdConsultargestionPacientes();
         }
         private void MtdMostrarListahabitaciones()
         {
