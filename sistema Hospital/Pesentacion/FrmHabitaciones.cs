@@ -200,6 +200,7 @@ namespace Habitaciones
         { //Comentario prueba
             lblfecha.Text = calcu.MtdFechaHoy().ToString();
             MtdConsultarCodigoHabitacion();
+            
         }
     }
     

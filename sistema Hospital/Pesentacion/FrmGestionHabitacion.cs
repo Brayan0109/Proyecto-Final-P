@@ -24,6 +24,7 @@ namespace TablaAmy
             lblfecha.Text=cl_gestionhabitaciones.MtdFechaHoy().ToString();
             MtdMostrarListaempleados();
             MtdMostrarListahabitaciones();
+            MtdConsultargestionhabitaciones();
         }
         private void MtdMostrarListaempleados()
         {

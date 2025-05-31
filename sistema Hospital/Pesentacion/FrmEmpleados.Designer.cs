@@ -36,9 +36,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.DtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.cboxTipoTrabajo = new System.Windows.Forms.ComboBox();
-            this.cboxEspecialidad = new System.Windows.Forms.ComboBox();
             this.cboxUsuarioAuditoria = new System.Windows.Forms.ComboBox();
-            this.txtSueldo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
@@ -55,6 +53,9 @@
             this.lblFechaActual = new System.Windows.Forms.Label();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtEspecialidad = new System.Windows.Forms.TextBox();
+            this.lblSueldo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,8 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(1081, 250);
             this.dgvEmpleados.TabIndex = 35;
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             // 
             // label11
             // 
@@ -85,14 +88,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblSueldo);
+            this.groupBox1.Controls.Add(this.txtEspecialidad);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.dtpFechaAuditoria);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.DtpFechaVencimiento);
             this.groupBox1.Controls.Add(this.cboxTipoTrabajo);
-            this.groupBox1.Controls.Add(this.cboxEspecialidad);
             this.groupBox1.Controls.Add(this.cboxUsuarioAuditoria);
-            this.groupBox1.Controls.Add(this.txtSueldo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboxEstado);
@@ -139,9 +143,8 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(245, 54);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 16);
+            this.label12.Size = new System.Drawing.Size(0, 16);
             this.label12.TabIndex = 27;
-            this.label12.Text = "--";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // DtpFechaVencimiento
@@ -168,40 +171,19 @@
             this.cboxTipoTrabajo.Name = "cboxTipoTrabajo";
             this.cboxTipoTrabajo.Size = new System.Drawing.Size(160, 26);
             this.cboxTipoTrabajo.TabIndex = 2;
-            // 
-            // cboxEspecialidad
-            // 
-            this.cboxEspecialidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxEspecialidad.FormattingEnabled = true;
-            this.cboxEspecialidad.Items.AddRange(new object[] {
-            "Jarabe",
-            "Pastilla",
-            "Suero",
-            "Vitaminas",
-            "Cremas"});
-            this.cboxEspecialidad.Location = new System.Drawing.Point(237, 117);
-            this.cboxEspecialidad.Margin = new System.Windows.Forms.Padding(4);
-            this.cboxEspecialidad.Name = "cboxEspecialidad";
-            this.cboxEspecialidad.Size = new System.Drawing.Size(160, 26);
-            this.cboxEspecialidad.TabIndex = 1;
+            this.cboxTipoTrabajo.SelectedIndexChanged += new System.EventHandler(this.cboxTipoTrabajo_SelectedIndexChanged);
             // 
             // cboxUsuarioAuditoria
             // 
             this.cboxUsuarioAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxUsuarioAuditoria.FormattingEnabled = true;
+            this.cboxUsuarioAuditoria.Items.AddRange(new object[] {
+            "Admin"});
             this.cboxUsuarioAuditoria.Location = new System.Drawing.Point(671, 108);
             this.cboxUsuarioAuditoria.Margin = new System.Windows.Forms.Padding(4);
             this.cboxUsuarioAuditoria.Name = "cboxUsuarioAuditoria";
             this.cboxUsuarioAuditoria.Size = new System.Drawing.Size(160, 26);
             this.cboxUsuarioAuditoria.TabIndex = 6;
-            // 
-            // txtSueldo
-            // 
-            this.txtSueldo.Location = new System.Drawing.Point(237, 154);
-            this.txtSueldo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(160, 22);
-            this.txtSueldo.TabIndex = 4;
             // 
             // label7
             // 
@@ -263,6 +245,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -278,6 +261,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
@@ -293,6 +277,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label8
             // 
@@ -384,6 +369,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEliminar
             // 
@@ -400,7 +386,34 @@
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // Empleados
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(237, 54);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(160, 22);
+            this.txtNombre.TabIndex = 30;
+            // 
+            // txtEspecialidad
+            // 
+            this.txtEspecialidad.Location = new System.Drawing.Point(237, 119);
+            this.txtEspecialidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEspecialidad.Name = "txtEspecialidad";
+            this.txtEspecialidad.Size = new System.Drawing.Size(160, 22);
+            this.txtEspecialidad.TabIndex = 31;
+            // 
+            // lblSueldo
+            // 
+            this.lblSueldo.AutoSize = true;
+            this.lblSueldo.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSueldo.Location = new System.Drawing.Point(244, 155);
+            this.lblSueldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSueldo.Name = "lblSueldo";
+            this.lblSueldo.Size = new System.Drawing.Size(27, 20);
+            this.lblSueldo.TabIndex = 32;
+            this.lblSueldo.Text = "__";
+            // 
+            // FrmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -411,8 +424,9 @@
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Empleados";
+            this.Name = "FrmEmpleados";
             this.Text = "Empleados";
+            this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -428,9 +442,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker DtpFechaVencimiento;
         private System.Windows.Forms.ComboBox cboxTipoTrabajo;
-        private System.Windows.Forms.ComboBox cboxEspecialidad;
         private System.Windows.Forms.ComboBox cboxUsuarioAuditoria;
-        private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboxEstado;
@@ -450,5 +462,8 @@
         private System.Windows.Forms.Label lblFechaActual;
         private FontAwesome.Sharp.IconButton btnSalir;
         private FontAwesome.Sharp.IconButton btnEliminar;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtEspecialidad;
+        private System.Windows.Forms.Label lblSueldo;
     }
 }

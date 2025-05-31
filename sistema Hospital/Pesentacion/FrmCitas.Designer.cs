@@ -139,10 +139,6 @@
             // 
             this.cboxCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCodigoEmpleado.FormattingEnabled = true;
-            this.cboxCodigoEmpleado.Items.AddRange(new object[] {
-            "Unidad",
-            "Docena",
-            "Caja"});
             this.cboxCodigoEmpleado.Location = new System.Drawing.Point(237, 82);
             this.cboxCodigoEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCodigoEmpleado.Name = "cboxCodigoEmpleado";
@@ -153,22 +149,19 @@
             // 
             this.cboxCodigoPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCodigoPaciente.FormattingEnabled = true;
-            this.cboxCodigoPaciente.Items.AddRange(new object[] {
-            "Jarabe",
-            "Pastilla",
-            "Suero",
-            "Vitaminas",
-            "Cremas"});
             this.cboxCodigoPaciente.Location = new System.Drawing.Point(237, 50);
             this.cboxCodigoPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCodigoPaciente.Name = "cboxCodigoPaciente";
             this.cboxCodigoPaciente.Size = new System.Drawing.Size(160, 26);
             this.cboxCodigoPaciente.TabIndex = 1;
+            this.cboxCodigoPaciente.SelectedIndexChanged += new System.EventHandler(this.cboxCodigoPaciente_SelectedIndexChanged);
             // 
             // cboxUsuario
             // 
             this.cboxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxUsuario.FormattingEnabled = true;
+            this.cboxUsuario.Items.AddRange(new object[] {
+            "Admin"});
             this.cboxUsuario.Location = new System.Drawing.Point(672, 90);
             this.cboxUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.cboxUsuario.Name = "cboxUsuario";
@@ -403,7 +396,7 @@
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // Citas
+            // FrmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -414,7 +407,7 @@
             this.Controls.Add(this.dgvCitas);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Citas";
+            this.Name = "FrmCitas";
             this.Text = "Citas";
             this.Load += new System.EventHandler(this.Citas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).EndInit();

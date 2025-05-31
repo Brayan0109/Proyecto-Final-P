@@ -11,24 +11,24 @@ namespace sistema_Hospital.Datos
     public class CDCitas
     {
         CDConexion cd_conexion = new CDConexion();
-        public List<dynamic> MtdListaProveedores()
+        public List<dynamic> MtdListaPaciente()
         {
-            List<dynamic> ListaProveedores = new List<dynamic>();
-            string QueryListaProveedores = "Select CodigoPaciente , Nombre from tbl_citas";
+            List<dynamic> listapaciente = new List<dynamic>();
+            string QueryListaProveedores = "Select CodigoPaciente , Nombres from tbl_Pacientes";
             SqlCommand cmd = new SqlCommand(QueryListaProveedores, cd_conexion.MtdAbrirConexion());
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                ListaProveedores.Add(new
+                listapaciente.Add(new
                 {
-                    Value = reader["CodigoProveedor"],
-                    Text = $"{reader["CodigoProveedor"]} - {reader["Nombre"]}"
+                    Value = reader["CodigoPaciente"],
+                    Text = $"{reader["CodigoPaciente"]} - {reader["Nombres"]}"
                 });
             }
 
             cd_conexion.MtdCerrarConexion();
-            return ListaProveedores;
+            return listapaciente;
         }
 
         public List<dynamic> MtdListaEmpleados()
@@ -50,7 +50,25 @@ namespace sistema_Hospital.Datos
             cd_conexion.MtdCerrarConexion();
             return ListaEmpleados;
         }
+        public List<dynamic> MtdCosto(int CodigoCita )
+        {
+            List<dynamic> ListaEmpleados = new List<dynamic>();
+            string QueryListaEmpleados = "SELECT Costo FROM tbl_tratamientos WHERE CodigoMedicamento = @codigoMedicamento";
+            SqlCommand cmd = new SqlCommand(QueryListaEmpleados, cd_conexion.MtdAbrirConexion());
+            SqlDataReader reader = cmd.ExecuteReader();
 
+            while (reader.Read())
+            {
+                ListaEmpleados.Add(new
+                {
+                    Value = reader["CodigoEmleado"],
+                    Text = $"{reader["CodigoEmleado"]} - {reader["Nombres"]}"
+                });
+            }
+
+            cd_conexion.MtdCerrarConexion();
+            return ListaEmpleados;
+        }
 
         public List<dynamic> MtdCostoCitas()
         {

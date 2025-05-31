@@ -62,6 +62,7 @@
     <Compile Include="Datos\CDpacientes.cs" />
     <Compile Include="Datos\CDpagocita.cs" />
     <Compile Include="Datos\CDpagoempleados.cs" />
+    <Compile Include="Datos\CDTratamientos.cs" />
     <Compile Include="Datos\CDusuario.cs" />
     <Compile Include="Logica\CLCitas.cs" />
     <Compile Include="Logica\CLEmpleados.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Logica\CLpacientes.cs" />
     <Compile Include="Logica\CLpagocita.cs" />
     <Compile Include="Logica\CLpagoempleados.cs" />
+    <Compile Include="Logica\CLTratamientos.cs" />
     <Compile Include="Logica\CLusuario.cs" />
     <Compile Include="Pesentacion\FrmCitas.cs">
       <SubType>Form</SubType>

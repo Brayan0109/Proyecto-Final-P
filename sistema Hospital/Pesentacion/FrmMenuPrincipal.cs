@@ -1,6 +1,10 @@
 ﻿using CapaPresentacion.Seguridad;
+using Habitaciones;
+using Pacientesamy;
 using sistema_Hospital;
+using sistema_Hospital.Pesentacion;
 using Sistema_Proyecto;
+using SistemaHospital.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TablaAmy;
 
 namespace CapaPresentacion.Presentacion
 {
@@ -162,6 +167,47 @@ namespace CapaPresentacion.Presentacion
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             LoadUserData();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmGestionHabitacion>();
+        }
+
+        private void btmHabitaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmHabitaciones>();
+        }
+
+        private void btnPacientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmPacientes>();
+        }
+
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmCitas>();
+        }
+
+        private void btnPagoCitas_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormulario<FrmModulopagoempleado>();
+        }
+
+        private void btnPagoEmpleados_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmModulopagoempleado>();
+        }
+
+        private void btnMedicamentos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmModulomedicamentos>();
+        }
+
+        private void btnTratamientos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FrmTratamientos>();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

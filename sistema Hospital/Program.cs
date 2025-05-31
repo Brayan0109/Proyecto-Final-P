@@ -1,7 +1,9 @@
-﻿using Habitaciones;
+﻿using CapaPresentacion.Presentacion;
+using Habitaciones;
 using Pacientesamy;
 using sistema_Hospital.Pesentacion;
 using Sistema_Proyecto;
+using SistemaHospital.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace sistema_Hospital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPacientes());
+            Application.Run(new FrmTratamientos());
         }
     }
 }

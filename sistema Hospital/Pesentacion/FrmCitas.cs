@@ -37,11 +37,23 @@ namespace sistema_Hospital.Pesentacion
             cboxCodigoEmpleado.DisplayMember = "Text";
             cboxCodigoEmpleado.ValueMember = "Value";
         }
+        private void MtdMostrarListaPacientes()
+        {
+            var ListaPacientes = cd_Citas.MtdListaPaciente();
 
+            foreach (var Paciente in ListaPacientes)
+            {
+                cboxCodigoPaciente.Items.Add(Paciente);
+            }
+
+            cboxCodigoPaciente.DisplayMember = "Text";
+            cboxCodigoPaciente.ValueMember = "Value";
+        }
         private void Citas_Load(object sender, EventArgs e)
         {
             lblFechaHoy.Text = Cl_Citas.MtdFechaHoy().ToString();
             MtdMostrarListaempleados();
+            MtdMostrarListaPacientes();
             MtdConsultarCitas();
         }
         private void MtdConsultarCitas()
@@ -69,7 +81,7 @@ namespace sistema_Hospital.Pesentacion
                     string CostoT = txtCostoT.Text;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = Cl_Citas.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = cboxUsuario.Text;
 
                     cd_Citas.MtdAgregarCitas(Codigoempleado, CodigoPaciente, FechaIngreso, FechaEgreso, CostoT, costoH, UsuarioAuditoria, Estado, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -104,7 +116,7 @@ namespace sistema_Hospital.Pesentacion
                     string CostoT = txtCostoT.Text;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = Cl_Citas.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria =cboxUsuario.Text;
 
                     cd_Citas.MtdAgregarCitas(Codigoempleado, CodigoPaciente, FechaIngreso, FechaEgreso, CostoT, costoH, UsuarioAuditoria, Estado, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,17 +155,7 @@ namespace sistema_Hospital.Pesentacion
                 cboxEstado.Text = dgvCitas.SelectedCells[8].Value.ToString();
               
 
-                //cboxCodigoCategoria.Text = dgvMedicamentos.SelectedCells[6].Value.ToString();
-                int Codigoempleado = (int)dgvCitas.SelectedCells[1].Value;
-                foreach (var codigoem in cboxCodigoEmpleado.Items)
-                {
-                    if (((dynamic)codigoem).Value == Codigoempleado)
-                    {
-                        cboxCodigoEmpleado.SelectedItem = codigoem;
-                        //break;
-                    }
-                }
-
+                
             }
         }
 
@@ -202,6 +204,13 @@ namespace sistema_Hospital.Pesentacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboxCodigoPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedMedicamento = (dynamic)cboxCodigoPaciente.SelectedItem;
+            int codigoMedicamento = (int)selectedMedicamento.Value;
+            txtCostoT.Text = Cl_Citas.MtdConsultaCostoTratamiento(codigoMedicamento).ToString();
         }
     }
 }

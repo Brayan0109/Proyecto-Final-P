@@ -11,6 +11,15 @@ namespace sistema_Hospital.Datos
     public class CDEmpleados
     {
         CDConexion cd_conexion = new CDConexion();
+        public DataTable MtdConsultaEmpleados()
+        {
+            string QueryConsultarEmpleados = "Select * from tbl_Empleados";
+            SqlDataAdapter Adapter = new SqlDataAdapter(QueryConsultarEmpleados, cd_conexion.MtdAbrirConexion());
+            DataTable Dt = new DataTable();
+            Adapter.Fill(Dt);
+            cd_conexion.MtdCerrarConexion();
+            return Dt;
+        }
 
         public DataTable MtdConsultarEmpleados()
         {
@@ -21,7 +30,7 @@ namespace sistema_Hospital.Datos
             cd_conexion.MtdCerrarConexion();
             return Dt;
         }
-        public void MtdAgregarMedicamentos(string Nombres, string TipoTrabajo, string Especialidad, double Sueldo, DateTime FechaAlta,  string Estado, string UsuarioAuditoria, DateTime FechaAuditoria)
+        public void MtdAgregarEmpleados(string Nombres, string TipoTrabajo, string Especialidad, double Sueldo, DateTime FechaAlta,  string Estado, string UsuarioAuditoria, DateTime FechaAuditoria)
         {
             string QueryAgregarMedicamentos = "INSERT INTO tbl_Empleados( Nombres, TipoTrabajo, Especialidad, Sueldo, FechaAlta, Estado, UsuarioAuditoria, FechaAuditoria) VALUES (@Nombres, @TipoTrabajo, @Especialidad, @Sueldo, @FechaAlta, @Estado, @UsuarioAuditoria, @FechaAuditoria)";
             SqlCommand cmd = new SqlCommand(QueryAgregarMedicamentos, cd_conexion.MtdAbrirConexion());
