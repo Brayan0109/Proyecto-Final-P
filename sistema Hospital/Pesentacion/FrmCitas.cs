@@ -203,7 +203,7 @@ namespace sistema_Hospital.Pesentacion
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void cboxCodigoPaciente_SelectedIndexChanged(object sender, EventArgs e)
