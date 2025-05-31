@@ -41,7 +41,7 @@ namespace Sistema_Proyecto
                     DateTime FechaVencimiento = dtpfechaven.Value;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = cl_medicamentos.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
 
                     cd_medicamentos.MtdAgregarMedicamento(Nombre, Tipomedicamento, Costo, Stock, FechaVencimiento, Estado, UsuarioAuditoria, FechaAuditoria);
                     MessageBox.Show("Medicamento agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,7 +76,7 @@ namespace Sistema_Proyecto
                     DateTime FechaVencimiento = dtpfechaven.Value;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = cl_medicamentos.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
 
                     cd_medicamentos.MtdActualizarMedicamento(CodigoMedicamento, Nombre, Tipomedicamento, Costo, Stock, FechaVencimiento, Estado, UsuarioAuditoria, FechaAuditoria);
                     MessageBox.Show("Medicamento agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -152,6 +152,7 @@ namespace Sistema_Proyecto
         private void Modulomedicamentos_Load(object sender, EventArgs e)
         {
             lblfecha.Text = cl_medicamentos.MtdFechaHoy().ToString("dd/MM/yyyy");
+            MtdConsultarMedicamentos();
         }
 
         private void cboxTM_SelectedIndexChanged(object sender, EventArgs e)

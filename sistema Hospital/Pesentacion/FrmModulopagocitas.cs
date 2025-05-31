@@ -39,47 +39,139 @@ namespace Sistema_Proyecto
             DataTable Dt = cd_pagocitas.MtdConsultarPagocitas();
             dvgpagocitas.DataSource = Dt;
         }
-        private void btnagregar_Click(object sender, EventArgs e)
+       
+      
+
+       
+
+       
+
+        /*
+        private void cboxCCI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }*/
+
+        private void dvgpagocitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modulopagocitas_Load(object sender, EventArgs e)
+        {
+            lblfecha.Text = cl_pagocitas.MtdFechaHoy().ToString("dd/MM/yyyy");
+            MtdMostrarListaCitas();
+            MtdConsultarPagocitas();
+        }
+
+        private void txtMC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboxCCI_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var selectedpagocita = (dynamic)cboxCCI.SelectedItem;
+            if (selectedpagocita != null)
+            {
+                int codigoPagoCita = (int)selectedpagocita.Value;
+                txtMC.Text = cl_pagocitas.Mtdmontocita(codigoPagoCita).ToString();
+
+                double Montocitas = double.Parse(txtMC.Text);
+                txtI.Text = cl_pagocitas.Mtdimpuesto(Montocitas).ToString();
+
+                double Montocita = double.Parse(txtMC.Text);
+                double Montopago = double.Parse(txtMC.Text);
+                txtD.Text = cl_pagocitas.MtdDescuentopago(Montocita, Montopago).ToString();
+
+                double Impuestos = double.Parse(txtI.Text);
+                double Descuentos = double.Parse(txtD.Text);
+                txtTP.Text = cl_pagocitas.Mtdtotalpago(Montocita, Impuestos, Descuentos).ToString();
+            }
+            else
+            {
+                txtMC.Text = string.Empty;
+            }
+        }
+
+        private void txtI_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+
+        }
+
+        private void txtD_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        
+
+        private void bntcancelar_Click(object sender, EventArgs e)
+        {
+            MtdLimpiarCampos();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnagregar_Click_1(object sender, EventArgs e)
+        {
             if (string.IsNullOrEmpty(cboxCCI.Text) || string.IsNullOrEmpty(txtMC.Text) || string.IsNullOrEmpty(txtI.Text) || string.IsNullOrEmpty(txtD.Text) ||
-                  string.IsNullOrEmpty(txtTP.Text) || string.IsNullOrEmpty(dtpFP.Text) || string.IsNullOrEmpty(cboxTP.Text))
+                string.IsNullOrEmpty(txtTP.Text) || string.IsNullOrEmpty(dtpFP.Text) || string.IsNullOrEmpty(cboxTP.Text))
             {
                 MessageBox.Show("Favor ingresar todos los datos en pantalla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+
+                //Este codigo que esta en codigo empleado siempre debe de ir en las llaves primarias
+
+
+
+
                 try
                 {
                     //Este codigo que esta en codigo empleado siempre debe de ir en las llaves primarias
-                    int Codigocita = (int)((dynamic)cboxCCI.SelectedItem).Value;
+                    var SelectedCita = (dynamic)cboxCCI.SelectedItem;
+                    int CodigoCita = (int)SelectedCita.Value;
+
                     int Montocita = int.Parse(txtMC.Text);
-                    double Impuestos = double.Parse( txtI.Text);
-                    double Descuentos =double.Parse( txtD.Text);
+                    double Impuestos = double.Parse(txtI.Text);
+                    double Descuentos = double.Parse(txtD.Text);
                     double Totalpago = double.Parse(txtTP.Text);
                     DateTime Fechapago = dtpFP.Value;
                     string Tipopago = cboxTP.Text;
                     DateTime FechaAuditoria = cl_pagocitas.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
                     //Aca esta llamando la base de datos para agregar a las tablas
-                    cd_pagocitas.MtdAgregarPagoCita(Codigocita, Montocita, Impuestos, Descuentos, Totalpago,Fechapago,Tipopago,  UsuarioAuditoria, FechaAuditoria);
+                    cd_pagocitas.MtdAgregarPagoCita(CodigoCita, Montocita, Impuestos, Descuentos, Totalpago, Fechapago, Tipopago, UsuarioAuditoria, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarPagocitas();
                     MtdLimpiarCampos();
-
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } 
-        }
+                }
+            }
+        
 
-        private void btneditar_Click(object sender, EventArgs e)
+        private void btneditar_Click_1(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(cboxCCI.Text) || string.IsNullOrEmpty(txtMC.Text) || string.IsNullOrEmpty(txtI.Text) || string.IsNullOrEmpty(txtD.Text) ||
-                  string.IsNullOrEmpty(txtTP.Text) || string.IsNullOrEmpty(dtpFP.Text) || string.IsNullOrEmpty(cboxTP.Text))
+                string.IsNullOrEmpty(txtTP.Text) || string.IsNullOrEmpty(dtpFP.Text) || string.IsNullOrEmpty(cboxTP.Text))
             {
                 MessageBox.Show("Favor ingresar todos los datos en pantalla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,9 +189,9 @@ namespace Sistema_Proyecto
                     DateTime Fechapago = dtpFP.Value;
                     string Tipopago = cboxTP.Text;
                     DateTime FechaAuditoria = cl_pagocitas.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
                     //Aca esta llamando la base de datos para agregar a las tablas
-                    cd_pagocitas.MtdActualizarPagocitas(CodigoPagoCita,Codigocita, Montocita, Impuestos, Descuentos, Totalpago, Fechapago, Tipopago, FechaAuditoria, UsuarioAuditoria);
+                    cd_pagocitas.MtdActualizarPagocitas(CodigoPagoCita, Codigocita, Montocita, Impuestos, Descuentos, Totalpago, Fechapago, Tipopago, FechaAuditoria, UsuarioAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarPagocitas();
                     MtdLimpiarCampos();
@@ -112,7 +204,7 @@ namespace Sistema_Proyecto
             }
         }
 
-        private void btneliminar_Click(object sender, EventArgs e)
+        private void btneliminar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCPC.Text))
             {
@@ -126,7 +218,7 @@ namespace Sistema_Proyecto
 
                     cd_pagocitas.MtdEliminarPagoCitas(CodigoUsuario);
                     MessageBox.Show("Pago citas eliminado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   MtdConsultarPagocitas();
+                    MtdConsultarPagocitas();
                     MtdLimpiarCampos();
 
 
@@ -138,7 +230,19 @@ namespace Sistema_Proyecto
             }
         }
 
-        private void dvgpagocitas_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void MtdLimpiarCampos()
+        {
+            txtCPC.Text = "";
+            cboxCCI.Text = "";
+            txtMC.Text = "";
+            txtI.Text = "";
+            txtD.Text = "";
+            txtTP.Text = "";
+            dtpFP.Text = "";
+            cboxTP.Text = "";
+        }
+
+        private void dvgpagocitas_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             var FilaSeleccionada = dvgpagocitas.SelectedRows[0];
 
@@ -176,87 +280,6 @@ namespace Sistema_Proyecto
 
 
             }
-
-        }
-        private void MtdLimpiarCampos()
-        {
-            txtCPC.Text = "";
-            cboxCCI.SelectedIndex = -1;
-            txtMC.Text = "";
-            txtI.Text = "";
-            txtD.Text = "";
-            txtTP.Text = "";
-            dtpFP.Text = "";
-            cboxTP.Text = "";
-        }
-
-        private void cboxCCI_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dvgpagocitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void modulopagocitas_Load(object sender, EventArgs e)
-        {
-            lblfecha.Text = cl_pagocitas.MtdFechaHoy().ToString("dd/MM/yyyy");
-            MtdMostrarListaCitas();
-        }
-
-        private void txtMC_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cboxCCI_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            var selectedpagocita = (dynamic)cboxCCI.SelectedItem;
-            int codigoPagoCita = (int)selectedpagocita.Value;
-            txtMC.Text = cl_pagocitas.Mtdmontocita(codigoPagoCita).ToString();
-        }
-
-        private void txtI_TextChanged(object sender, EventArgs e)
-        {
-
-            double Montocitas = double.Parse(txtMC.Text);
-            txtI.Text = cl_pagocitas.Mtdimpuesto(Montocitas).ToString();
-        }
-
-        private void txtD_TextChanged(object sender, EventArgs e)
-        {
-            double Montocita = double.Parse(txtMC.Text);
-            double Montopago = double.Parse(txtMC.Text);
-            txtD.Text = cl_pagocitas.MtdDescuentopago(Montocita,Montopago).ToString();
-
-        }
-
-        private void txtTP_TextChanged(object sender, EventArgs e)
-        {
-            double Montocita = double.Parse(txtMC.Text);
-            double Impuestos = double.Parse(txtI.Text);
-            double Descuentos = double.Parse(txtD.Text);
-            txtTP.Text = cl_pagocitas.Mtdtotalpago(Montocita, Impuestos, Descuentos).ToString();
-        }
-
-        private void bntcancelar_Click(object sender, EventArgs e)
-        {
-            MtdLimpiarCampos();
-        }
-
-        private void btnsalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnagregar_Click_1(object sender, EventArgs e)
-        {
 
         }
     }

@@ -128,6 +128,7 @@
             // 
             this.txttotalmonto.Location = new System.Drawing.Point(372, 19);
             this.txttotalmonto.Name = "txttotalmonto";
+            this.txttotalmonto.ReadOnly = true;
             this.txttotalmonto.Size = new System.Drawing.Size(100, 20);
             this.txttotalmonto.TabIndex = 35;
             this.txttotalmonto.TextChanged += new System.EventHandler(this.txttotalmonto_TextChanged);
@@ -148,6 +149,7 @@
             this.txtMontohorasextras.Name = "txtMontohorasextras";
             this.txtMontohorasextras.Size = new System.Drawing.Size(100, 20);
             this.txtMontohorasextras.TabIndex = 33;
+            this.txtMontohorasextras.TextChanged += new System.EventHandler(this.txtMontohorasextras_TextChanged);
             // 
             // dtpfechapago
             // 
@@ -160,6 +162,7 @@
             // 
             this.txtbono.Location = new System.Drawing.Point(128, 143);
             this.txtbono.Name = "txtbono";
+            this.txtbono.ReadOnly = true;
             this.txtbono.Size = new System.Drawing.Size(100, 20);
             this.txtbono.TabIndex = 27;
             this.txtbono.TextChanged += new System.EventHandler(this.txtbono_TextChanged);
@@ -189,6 +192,7 @@
             // 
             this.txtSueldo.Location = new System.Drawing.Point(128, 109);
             this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.ReadOnly = true;
             this.txtSueldo.Size = new System.Drawing.Size(100, 20);
             this.txtSueldo.TabIndex = 20;
             this.txtSueldo.TextChanged += new System.EventHandler(this.txtSueldo_TextChanged);
@@ -314,6 +318,7 @@
             this.dvgEmpleados.Location = new System.Drawing.Point(13, 324);
             this.dvgEmpleados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgEmpleados.Name = "dvgEmpleados";
+            this.dvgEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgEmpleados.Size = new System.Drawing.Size(410, 184);
             this.dvgEmpleados.TabIndex = 31;
             this.dvgEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgEmpleados_CellClick);
@@ -340,7 +345,7 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Modulo Pago Empleados";
             // 
-            // Modulopagoempleado
+            // FrmModulopagoempleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -355,7 +360,7 @@
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.btneditar);
-            this.Name = "Modulopagoempleado";
+            this.Name = "FrmModulopagoempleado";
             this.Text = "Modulopagoempleado";
             this.Load += new System.EventHandler(this.Modulopagoempleado_Load);
             this.groupBox1.ResumeLayout(false);

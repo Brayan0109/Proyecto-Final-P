@@ -108,6 +108,7 @@
             this.btneditar.TabIndex = 7;
             this.btneditar.Text = "✏EDITAR";
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click_1);
             // 
             // btneliminar
             // 
@@ -118,6 +119,7 @@
             this.btneliminar.TabIndex = 8;
             this.btneliminar.Text = "✖ELIMINAR";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
             // 
             // cboxCCI
             // 
@@ -171,6 +173,7 @@
             // 
             this.txtMC.Location = new System.Drawing.Point(128, 84);
             this.txtMC.Name = "txtMC";
+            this.txtMC.ReadOnly = true;
             this.txtMC.Size = new System.Drawing.Size(100, 20);
             this.txtMC.TabIndex = 19;
             this.txtMC.TextChanged += new System.EventHandler(this.txtMC_TextChanged);
@@ -179,6 +182,7 @@
             // 
             this.txtI.Location = new System.Drawing.Point(128, 115);
             this.txtI.Name = "txtI";
+            this.txtI.ReadOnly = true;
             this.txtI.Size = new System.Drawing.Size(100, 20);
             this.txtI.TabIndex = 20;
             this.txtI.TextChanged += new System.EventHandler(this.txtI_TextChanged);
@@ -197,9 +201,9 @@
             // 
             this.txtTP.Location = new System.Drawing.Point(128, 177);
             this.txtTP.Name = "txtTP";
+            this.txtTP.ReadOnly = true;
             this.txtTP.Size = new System.Drawing.Size(100, 20);
             this.txtTP.TabIndex = 22;
-            this.txtTP.TextChanged += new System.EventHandler(this.txtTP_TextChanged);
             // 
             // label8
             // 
@@ -260,6 +264,7 @@
             // 
             this.txtD.Location = new System.Drawing.Point(128, 150);
             this.txtD.Name = "txtD";
+            this.txtD.ReadOnly = true;
             this.txtD.Size = new System.Drawing.Size(100, 20);
             this.txtD.TabIndex = 29;
             this.txtD.TextChanged += new System.EventHandler(this.txtD_TextChanged);
@@ -281,8 +286,10 @@
             this.dvgpagocitas.Location = new System.Drawing.Point(2, 272);
             this.dvgpagocitas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgpagocitas.Name = "dvgpagocitas";
+            this.dvgpagocitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgpagocitas.Size = new System.Drawing.Size(470, 176);
             this.dvgpagocitas.TabIndex = 24;
+            this.dvgpagocitas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgpagocitas_CellClick_1);
             this.dvgpagocitas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgpagocitas_CellContentClick);
             // 
             // label6
