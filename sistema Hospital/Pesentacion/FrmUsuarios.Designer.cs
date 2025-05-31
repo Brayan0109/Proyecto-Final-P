@@ -139,6 +139,7 @@
             this.dvgUsuario.Location = new System.Drawing.Point(3, 291);
             this.dvgUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgUsuario.Name = "dvgUsuario";
+            this.dvgUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgUsuario.Size = new System.Drawing.Size(402, 174);
             this.dvgUsuario.TabIndex = 9;
             this.dvgUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgUsuario_CellClick);
@@ -295,7 +296,7 @@
             this.btnsalir.UseVisualStyleBackColor = true;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
-            // Form1
+            // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +310,7 @@
             this.Controls.Add(this.btneliminar);
             this.Font = new System.Drawing.Font("Bodoni MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "FrmUsuarios";
             this.Text = "SISTEMA HOSPITAL";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgUsuario)).EndInit();

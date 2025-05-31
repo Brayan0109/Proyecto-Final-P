@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 using static System.Net.WebRequestMethods;
 
 namespace Sistema_Proyecto
@@ -34,8 +35,9 @@ namespace Sistema_Proyecto
 
         private void Modulopagoempleado_Load(object sender, EventArgs e)
         {
-            lblfecha.Text=cl_pagoempleados.MtdFechaHoy().ToString("dd/MM/yyyy");
+            lblfecha.Text = cl_pagoempleados.MtdFechaHoy().ToString("dd/MM/yyyy");
             MtdMostrarListaEmpleados();
+            MtdConsultarPagoempleados();
         }
         private void MtdConsultarPagoempleados()
         {
@@ -44,29 +46,48 @@ namespace Sistema_Proyecto
         }
         private void cboxcodigoempleado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var selectedpagoempleado = (dynamic)cboxcodigoempleado.SelectedItem;
+            if (selectedpagoempleado != null)
+            {
+                int Sueldo = (int)selectedpagoempleado.Value;
+                txtSueldo.Text = cl_pagoempleados.Mtdsueldoempleados(Sueldo).ToString();
 
-            var selectedempleado = (dynamic)cboxcodigoempleado.SelectedItem;
-            int codigoempleado = (int)selectedempleado.Value;
-            txtSueldo.Text=cl_pagoempleados.Mtdsueldoempleados(codigoempleado).ToString();
+                double Bono = double.Parse(txtSueldo.Text);
+                txtbono.Text = cl_pagoempleados.MtdSueldoBono(Bono).ToString();
+
+
+
+
+            }
+            else
+            {
+                txtSueldo.Text = string.Empty;
+            }
+
+
+
+
+
+
+
+
         }
 
         private void txtSueldo_TextChanged(object sender, EventArgs e)
         {
-            
+
+
+
         }
 
         private void txtbono_TextChanged(object sender, EventArgs e)
         {
-            double sueldo = double.Parse(txtSueldo.Text);
-            txtbono.Text = cl_pagoempleados.MtdSueldoBono(sueldo).ToString();
+
         }
 
         private void txttotalmonto_TextChanged(object sender, EventArgs e)
         {
-            double sueldo = double.Parse(txtSueldo.Text);
-            double bono = double.Parse(txtbono.Text);
-            double Montohorase = double.Parse(txtMontohorasextras.Text);
-            txtbono.Text = cl_pagoempleados.MtdTotalmonto(sueldo,bono,Montohorase).ToString();
+
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -78,20 +99,22 @@ namespace Sistema_Proyecto
             }
             else
             {
+
+
                 try
                 {
-                    //Este codigo que esta en codigo empleado siempre debe de ir en las llaves primarias
+                    var Selectedempleado = (dynamic)cboxcodigoempleado.SelectedItem;
                     int Codigoempleado = (int)((dynamic)cboxcodigoempleado.SelectedItem).Value;
                     DateTime Fechapago = dtpfechapago.Value;
                     double Sueldo = double.Parse(txtSueldo.Text);
                     double Bono = double.Parse(txtbono.Text);
                     int MontoHorasextras = int.Parse(txtMontohorasextras.Text);
+                    double Montototal = double.Parse(txttotalmonto.Text);
                     string Estado = cboxestado.Text;
-                    double Montototal=double.Parse(txttotalmonto.Text); 
                     DateTime FechaAuditoria = cl_pagoempleados.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
 
-                    cd_pagoempleados.MtdAgregarPagoempleados(Codigoempleado, Fechapago, Sueldo, Bono, MontoHorasextras,Montototal, Estado, UsuarioAuditoria, FechaAuditoria);
+                    cd_pagoempleados.MtdAgregarPagoempleados(Codigoempleado, Fechapago, Sueldo, Bono, MontoHorasextras, Montototal, Estado, UsuarioAuditoria, FechaAuditoria);
                     MessageBox.Show("Pago empleado agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarPagoempleados();
                     MtdLimpiarCampos();
@@ -105,7 +128,9 @@ namespace Sistema_Proyecto
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
+
 
         private void btneditar_Click(object sender, EventArgs e)
         {
@@ -116,25 +141,26 @@ namespace Sistema_Proyecto
             }
             else
             {
+                
+
+
                 try
                 {
-                    //Ente la llave primaria se coloca esto
                     int Codigopagoempleado = (int.Parse(txtPagoempleados.Text));
                     int Codigoempleados = (int)((dynamic)cboxcodigoempleado.SelectedItem).Value;
-                    DateTime Fechapago= dtpfechapago.Value;
+                    DateTime Fechapago = dtpfechapago.Value;
                     double Sueldos = double.Parse(txtSueldo.Text);
                     double Bono = double.Parse(txtbono.Text);
                     int Montohorasextras = int.Parse(txtMontohorasextras.Text);
                     double Totalmonto = double.Parse(txttotalmonto.Text);
                     string Estado = cboxestado.Text;
                     DateTime FechaAuditoria = cl_pagoempleados.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
                     //Aca esta llamando la base de datos para agregar a las tablas
                     cd_pagoempleados.MtdActualizarPagoempleados(Codigopagoempleado, Codigoempleados, Fechapago, Sueldos, Bono, Montohorasextras, Totalmonto, Estado, FechaAuditoria, UsuarioAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarPagoempleados();
                     MtdLimpiarCampos();
-
 
                 }
                 catch (Exception ex)
@@ -144,6 +170,7 @@ namespace Sistema_Proyecto
             }
 
         }
+    
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
@@ -228,5 +255,27 @@ namespace Sistema_Proyecto
                 cboxestado.Text = dvgEmpleados.SelectedCells[7].Value.ToString();
             }
             }
+
+        private void txtMontohorasextras_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMontohorasextras.Text != "")
+            {
+
+
+                if (!string.IsNullOrWhiteSpace(txtSueldo.Text))
+                {
+
+
+                    double sueldo = double.Parse(txtSueldo.Text);
+                    
+                    double montohorase = double.Parse(txtMontohorasextras.Text);
+                    double bono = double.Parse(txtbono.Text);
+                    txttotalmonto.Text = cl_pagoempleados.MtdTotalmonto(sueldo, bono, montohorase).ToString();
+
+
+
+                }
+            }
+        }
     }
 }

@@ -12,20 +12,20 @@ namespace Sistema_Proyecto
     internal class CLpagocita
     {
         CDConexion cd_conexion = new CDConexion();
-        public double Mtdmontocita(int CodigoPagoCita)
+        public double Mtdmontocita(int CodigoCitas)
         {
             double CostoPagocita = 0;
 
-            string QueryConsultarCostoPagocita = "Select CostoTratamiento, CostoHabitacion from tbl_Citas where CodigoPagoCita=@CodigoPagoCita";
+            string QueryConsultarCostoPagocita = "Select CostoTratamiento, CostoHabitacion from tbl_Citas where CodigoCitas=@CodigoCitas";
             SqlCommand CommandCostoPagocita = new SqlCommand(QueryConsultarCostoPagocita, cd_conexion.MtdAbrirConexion());
-            CommandCostoPagocita.Parameters.AddWithValue("@CodigoPagoCita", CodigoPagoCita);
+            CommandCostoPagocita.Parameters.AddWithValue("@CodigoCitas", CodigoCitas);
             SqlDataReader reader = CommandCostoPagocita.ExecuteReader();
 
             if (reader.Read())
             {
                 double CostoTratamiento = double.Parse(reader["CostoTratamiento"].ToString());
                 double CostoHabitacion = double.Parse(reader["CostoHabitacion"].ToString());
-                CostoPagocita = CostoTratamiento + CostoHabitacion;
+                CostoPagocita =CostoTratamiento + CostoHabitacion;
             }
             else
             {

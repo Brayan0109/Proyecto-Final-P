@@ -16,7 +16,7 @@ namespace Sistema_Proyecto
         public List<dynamic> MtdListaCitas()
         {
             List<dynamic> ListaCitas = new List<dynamic>();
-            string QueryListaCitas = "Select CodigoCitas from tbl_Empleados";
+            string QueryListaCitas = "Select CodigoCitas from tbl_Citas";
             SqlCommand cmd = new SqlCommand(QueryListaCitas, cd_conexion.MtdAbrirConexion());
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -41,34 +41,34 @@ namespace Sistema_Proyecto
             cd_conexion.MtdCerrarConexion();
             return Dt;
         }
-        public void MtdAgregarPagoCita(int Codigocita, int Montocita, double Impuestos, double Descuentos, double Totalpago, DateTime Fechapago, string Tipopago, string UsuarioAuditoria, DateTime FechaAuditoria)
+        public void MtdAgregarPagoCita(int CodigoCita, int Montocita, double Impuestos, double Descuentos, double Totalpago, DateTime Fechapago, string Tipopago, string UsuarioAuditoria, DateTime FechaAuditoria)
         {
-            string QueryAgregarPagocitas = "Insert into tbl_PagoCitas(Codigocita,Montocita,Impuestos, Descuentos,  Totalpago,Fechapago,Tipopago, FechaAuditoria, UsuarioAuditoria) values (@Codigocita, @Montocita, @Impuestos, @Descuentos, @Totalpago,Fechapago,Tipopago, @FechaAuditoria, @UsuarioAuditoria)";
+            string QueryAgregarPagocitas = "Insert into tbl_PagoCitas(Codigocita,MontoCita,Impuesto, Descuento,  Totalpago,FechaPago,TipoPago, FechaAuditoria, UsuarioAuditoria) values (@Codigocita, @MontoCita, @Impuesto, @Descuento, @Totalpago,@FechaPago,@TipoPago, @FechaAuditoria, @UsuarioAuditoria)";
             SqlCommand cmd = new SqlCommand(QueryAgregarPagocitas, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@Codigocita", Codigocita);
-            cmd.Parameters.AddWithValue("@Montocita", Montocita);
-            cmd.Parameters.AddWithValue("@Impuestos", Impuestos);
-            cmd.Parameters.AddWithValue("@Descuentos", Descuentos);
+            cmd.Parameters.AddWithValue("@Codigocita", CodigoCita);
+            cmd.Parameters.AddWithValue("@MontoCita", Montocita);
+            cmd.Parameters.AddWithValue("@Impuesto", Impuestos);
+            cmd.Parameters.AddWithValue("@Descuento", Descuentos);
             cmd.Parameters.AddWithValue("@Totalpago", Totalpago);
-            cmd.Parameters.AddWithValue("@Fechapago", Fechapago);
-            cmd.Parameters.AddWithValue("@Tipopago", Tipopago);
+            cmd.Parameters.AddWithValue("@FechaPago", Fechapago);
+            cmd.Parameters.AddWithValue("@TipoPago", Tipopago);
             cmd.Parameters.AddWithValue("@FechaAuditoria", FechaAuditoria);
             cmd.Parameters.AddWithValue("@UsuarioAuditoria", UsuarioAuditoria);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
-        public void MtdActualizarPagocitas(int CodigoPagocitas, int Codigocita, int Montocita, double Impuestos, double Descuentos,double Totalpago,DateTime Fechapago, string Tipopago, DateTime FechaAuditoria, string UsuarioAuditoria)
+        public void MtdActualizarPagocitas(int CodigoPagoCita, int CodigoCita, int Montocita, double Impuestos, double Descuentos,double Totalpago,DateTime Fechapago, string Tipopago, DateTime FechaAuditoria, string UsuarioAuditoria)
         {
-            string QueryActualizarPagocitas = "Update tbl_PagoCitas set Codigocita=@Codigocita , Montocita=@Montocita, Impuestos=@Impuestos, Descuentos=@Descuentos, Totalpago=@Totalpago, Fechapago=@Fechapago, Tipopago=@Tipopago FechaAuditoria=@FechaAuditoria, UsuarioAuditoria=@UsuarioAuditoria where CodigoPagocitas=@CodigoPagocitas";
+            string QueryActualizarPagocitas = "Update tbl_PagoCitas set Codigocita=@Codigocita , MontoCita=@MontoCita, Impuesto=@Impuesto, Descuento=@Descuento, Totalpago=@Totalpago, FechaPago=@FechaPago, TipoPago=@TipoPago FechaAuditoria=@FechaAuditoria, UsuarioAuditoria=@UsuarioAuditoria where CodigoPagocitas=@CodigoPagocitas";
             SqlCommand cmd = new SqlCommand(QueryActualizarPagocitas, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@CodigoUsuario", CodigoPagocitas);
-            cmd.Parameters.AddWithValue("@Codigocita", Codigocita);
-            cmd.Parameters.AddWithValue("@Montocita", Montocita);
-            cmd.Parameters.AddWithValue("@Impuestos", Impuestos);
-            cmd.Parameters.AddWithValue("@Descuentos", Descuentos);
+            cmd.Parameters.AddWithValue("@CodigoPagoCita", CodigoPagoCita);
+            cmd.Parameters.AddWithValue("@Codigocita", CodigoCita);
+            cmd.Parameters.AddWithValue("@MontoCita", Montocita);
+            cmd.Parameters.AddWithValue("@Impuesto", Impuestos);
+            cmd.Parameters.AddWithValue("@Descuento", Descuentos);
             cmd.Parameters.AddWithValue("@Totalpago", Totalpago);
-            cmd.Parameters.AddWithValue("@Fechapago", Fechapago);
-            cmd.Parameters.AddWithValue("@Tipopago", Tipopago);
+            cmd.Parameters.AddWithValue("@FechaPago", Fechapago);
+            cmd.Parameters.AddWithValue("@TipoPago", Tipopago);
             cmd.Parameters.AddWithValue("@FechaAuditoria", FechaAuditoria);
             cmd.Parameters.AddWithValue("@UsuarioAuditoria", UsuarioAuditoria);
             cmd.ExecuteNonQuery();

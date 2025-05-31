@@ -15,26 +15,30 @@ namespace Sistema_Proyecto
         public double Mtdsueldoempleados(int CodigoEmpleado)
         {
             double sueldoempleado = 0;
+           
 
-            string QueryConsultarSueldoempleado = "Select CodigoEmleado from tbl_Empleados where CodigoEmpleado=@CodigoEmpleado";
+            string QueryConsultarSueldoempleado = "Select Sueldo  from tbl_Empleados where CodigoEmleado=@CodigoEmleado";
             SqlCommand CommandSueldoempleado = new SqlCommand(QueryConsultarSueldoempleado, cd_conexion.MtdAbrirConexion());
-            CommandSueldoempleado.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
+            CommandSueldoempleado.Parameters.AddWithValue("@CodigoEmleado", CodigoEmpleado);
+            
+
             SqlDataReader reader = CommandSueldoempleado.ExecuteReader();
 
             if (reader.Read())
             {
-                int Codigoempleado = int.Parse(reader["sueldo"].ToString());
+               sueldoempleado= double.Parse(reader["Sueldo"].ToString());
 
+              
             }
             else
             {
-
-
-                sueldoempleado = 0;
+                sueldoempleado = 0;               
 
             }
             cd_conexion.MtdCerrarConexion();
             return sueldoempleado;
+        
+             
         }
         public double MtdSueldoBono(double Sueldo)
         {
@@ -42,6 +46,9 @@ namespace Sistema_Proyecto
         }
         public double MtdTotalmonto(double Sueldo, double Bono, double MontoHorasE)
         {
+         
+
+
             return Sueldo + Bono + (MontoHorasE * 20);
         }
 

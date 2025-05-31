@@ -73,7 +73,7 @@ namespace Sistema_Proyecto
                     string TipoUsuario = cboxTipoUsuario.Text;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = cl_usu.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
                     
                     cd_usuario.MtdAgregarUsuario(Codigoempleado, Usuario, Clave, TipoUsuario, Estado, UsuarioAuditoria, FechaAuditoria);
                     MessageBox.Show("Usuario agregado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -122,7 +122,7 @@ namespace Sistema_Proyecto
                     string TipoUsuario = cboxTipoUsuario.Text;
                     string Estado = cboxEstado.Text;
                     DateTime FechaAuditoria = cl_usu.MtdFechaHoy();
-                    string UsuarioAuditoria = "DESKTOP-M60V2AT";
+                    string UsuarioAuditoria = "Admin";
                     //Aca manda a actualizar las tablas a la base de datos
                     cd_usuario.MtdActualizarUsuario(CodigoUsuario, Codigoempleado, Usuario, Clave, TipoUsuario, Estado,FechaAuditoria, UsuarioAuditoria);
                     MessageBox.Show("Usuario actualizado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);

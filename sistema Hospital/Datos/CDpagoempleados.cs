@@ -41,31 +41,33 @@ namespace Sistema_Proyecto
             cd_conexion.MtdCerrarConexion();
             return Dt;
         }
-        public void MtdAgregarPagoempleados(int Codigoempleado, DateTime Fechapago, double Sueldo,double Bono, int Montohorasextras, double Montototal, string Estado, string UsuarioAuditoria, DateTime FechaAuditoria)
+        public void MtdAgregarPagoempleados(int Codigoempleado, DateTime Fechapago, double Sueldo,double Bono, int MontoHorasE,  double TotalMonto, string Estado, string UsuarioAuditoria, DateTime FechaAuditoria)
         {
-            string QueryAgregarUsuario = "Insert into tbl_PagoEmpleados(Codigoempleado, Fechapago, Sueldo, Bono, Montohorasextras, Montototal,  Estado, FechaAuditoria, UsuarioAuditoria) values (@Codigoempleado, @Fechapago, @Sueldo,@Bono, @Montohorasextras, @Montototal @Estado, @FechaAuditoria, @UsuarioAuditoria)";
+            string QueryAgregarUsuario = "Insert into tbl_PagoEmpleados(CodigoEmpleado, Fechapago, Sueldo, Bono,MontoHorasE, TotalMonto,  Estado, FechaAuditoria, UsuarioAuditoria) values (@CodigoEmpleado, @Fechapago, @Sueldo,@Bono,@MontoHorasE,  @TotalMonto, @Estado, @FechaAuditoria, @UsuarioAuditoria)";
             SqlCommand cmd = new SqlCommand(QueryAgregarUsuario, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@Codigoempleado", Codigoempleado);
+            cmd.Parameters.AddWithValue("@CodigoEmpleado", Codigoempleado);
             cmd.Parameters.AddWithValue("@Fechapago", Fechapago);
             cmd.Parameters.AddWithValue("@Sueldo", Sueldo);
-            cmd.Parameters.AddWithValue("@Montohorasextras", Montohorasextras);
-            cmd.Parameters.AddWithValue("@Montototal", Montototal);
+            cmd.Parameters.AddWithValue("@Bono", Bono);
+            cmd.Parameters.AddWithValue("@MontoHorasE", MontoHorasE);
+            cmd.Parameters.AddWithValue("@TotalMonto", TotalMonto);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@FechaAuditoria", FechaAuditoria);
             cmd.Parameters.AddWithValue("@UsuarioAuditoria", UsuarioAuditoria);
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
-        public void MtdActualizarPagoempleados(int Codigopago, int Codigoempleado, DateTime Fechapago, double Sueldo,double Bono, int Montohorasextras, double Montototal, string Estado, DateTime FechaAuditoria, string UsuarioAuditoria)
+        public void MtdActualizarPagoempleados(int Codigopago, int Codigoempleado, DateTime Fechapago, double Sueldo,double Bono,int MontoHorasE,  double TotalMonto, string Estado, DateTime FechaAuditoria, string UsuarioAuditoria)
         {
-            string QueryActualizarUsuario = "Update tbl_PagoEmpleados set Codigoempleado=@Codigoempleado , Usuario=@Usuario, Bono=@Bono, Clave=@Clave, TipoUsuario=@TipoUsuario, Estado=@Estado, FechaAuditoria=@FechaAuditoria, UsuarioAuditoria=@UsuarioAuditoria where Codigopago=@Codigopago";
+            string QueryActualizarUsuario = "Update tbl_PagoEmpleados set CodigoEmpleado=@CodigoEmpleado ,FechaPago=@FechaPago,  Sueldo=@Sueldo,Bono=@Bono,MontoHorasE=@MontoHorasE ,TotalMonto=@TotalMonto, Estado=@Estado, FechaAuditoria=@FechaAuditoria, UsuarioAuditoria=@UsuarioAuditoria where Codigopago=@Codigopago";
             SqlCommand cmd = new SqlCommand(QueryActualizarUsuario, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@Codigopago", Codigopago);
-            cmd.Parameters.AddWithValue("@Codigoempleado", Codigoempleado);
-            cmd.Parameters.AddWithValue("@Fechapago", Fechapago);
+            cmd.Parameters.AddWithValue("@CodigoEmpleado", Codigoempleado);
+            cmd.Parameters.AddWithValue("@FechaPago", Fechapago);
             cmd.Parameters.AddWithValue("@Sueldo", Sueldo);
-            cmd.Parameters.AddWithValue("@Montohorasextras", Montohorasextras);
-            cmd.Parameters.AddWithValue("@Montototal", Montototal);
+            cmd.Parameters.AddWithValue("@Bono", Bono);
+            cmd.Parameters.AddWithValue("@MontoHorasE", MontoHorasE);
+            cmd.Parameters.AddWithValue("@TotalMonto", TotalMonto);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@FechaAuditoria", FechaAuditoria);
             cmd.Parameters.AddWithValue("@UsuarioAuditoria", UsuarioAuditoria);

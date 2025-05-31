@@ -22,7 +22,11 @@ namespace sistema_Hospital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new FrmTratamientos());
+=======
+            Application.Run(new FrmCitas());
+>>>>>>> eab918f868b15a23c56c8dc4596d22425223d3a8
         }
     }
 }

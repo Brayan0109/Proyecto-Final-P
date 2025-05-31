@@ -120,6 +120,7 @@
             // 
             this.txtCos.Location = new System.Drawing.Point(128, 115);
             this.txtCos.Name = "txtCos";
+            this.txtCos.ReadOnly = true;
             this.txtCos.Size = new System.Drawing.Size(100, 20);
             this.txtCos.TabIndex = 20;
             this.txtCos.TextChanged += new System.EventHandler(this.txtCos_TextChanged);
@@ -282,6 +283,7 @@
             this.dvgMedicamentos.Location = new System.Drawing.Point(13, 317);
             this.dvgMedicamentos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgMedicamentos.Name = "dvgMedicamentos";
+            this.dvgMedicamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgMedicamentos.Size = new System.Drawing.Size(410, 184);
             this.dvgMedicamentos.TabIndex = 24;
             // 
@@ -316,7 +318,7 @@
             this.lblfecha.TabIndex = 29;
             this.lblfecha.Text = "Imprimir fecha";
             // 
-            // Modulomedicamentos
+            // FrmModulomedicamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -328,7 +330,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dvgMedicamentos);
             this.Controls.Add(this.btneliminar);
-            this.Name = "Modulomedicamentos";
+            this.Name = "FrmModulomedicamentos";
             this.Text = "Modulomedicamentos";
             this.Load += new System.EventHandler(this.Modulomedicamentos_Load);
             this.groupBox1.ResumeLayout(false);
